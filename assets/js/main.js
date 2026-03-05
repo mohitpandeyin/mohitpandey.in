@@ -29,7 +29,7 @@
 
 // ===== Navbar Scroll Effect =====
 (function () {
-  const navbar = document.getElementById('navbar');
+  const navbar = document.getElementById('mp-navbar');
   if (!navbar) return;
 
   let ticking = false;
@@ -38,9 +38,9 @@
     if (!ticking) {
       requestAnimationFrame(() => {
         if (window.scrollY > 40) {
-          navbar.classList.add('scrolled');
+          navbar.classList.add('mp-scrolled');
         } else {
-          navbar.classList.remove('scrolled');
+          navbar.classList.remove('mp-scrolled');
         }
         ticking = false;
       });
@@ -58,7 +58,7 @@
     (entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
+          entry.target.classList.add('mp-visible');
           observer.unobserve(entry.target);
         }
       });
@@ -66,14 +66,14 @@
     { threshold: 0.08, rootMargin: '0px 0px -60px 0px' }
   );
 
-  document.querySelectorAll('.animate-on-scroll').forEach((el) => {
+  document.querySelectorAll('.mp-animate-on-scroll').forEach((el) => {
     observer.observe(el);
   });
 })();
 
 // ===== Smooth Scroll for Nav Links =====
 (function () {
-  document.querySelectorAll('.nav-link[href^="#"]').forEach((link) => {
+  document.querySelectorAll('.mp-nav-link[href^="#"]').forEach((link) => {
     link.addEventListener('click', (e) => {
       const target = document.querySelector(link.getAttribute('href'));
       if (target) {
@@ -95,9 +95,9 @@
     if (!ticking) {
       requestAnimationFrame(() => {
         if (window.scrollY > 400) {
-          btn.classList.add('visible');
+          btn.classList.add('mp-visible');
         } else {
-          btn.classList.remove('visible');
+          btn.classList.remove('mp-visible');
         }
         ticking = false;
       });
@@ -113,7 +113,7 @@
 // ===== Active Nav Link Highlight =====
 (function () {
   const sections = document.querySelectorAll('section[id], header[id]');
-  const navLinks = document.querySelectorAll('.nav-link');
+  const navLinks = document.querySelectorAll('.mp-nav-link');
 
   if (!sections.length || !navLinks.length) return;
 
@@ -124,7 +124,7 @@
           const id = entry.target.getAttribute('id');
           navLinks.forEach((link) => {
             link.classList.toggle(
-              'active',
+              'mp-active',
               link.getAttribute('href') === `#${id}`
             );
           });
