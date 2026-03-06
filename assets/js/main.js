@@ -5,8 +5,10 @@
 
 // ===== Theme Toggle =====
 (function () {
-  const toggle = document.getElementById('themeToggle');
-  const icon = toggle?.querySelector('i');
+  const toggles = [
+    document.getElementById('themeToggle'),
+    document.getElementById('themeToggleHero'),
+  ];
   const stored = localStorage.getItem('theme');
   const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
   const theme = stored || (prefersDark ? 'dark' : 'light');
@@ -14,22 +16,26 @@
   function setTheme(t) {
     document.documentElement.setAttribute('data-theme', t);
     localStorage.setItem('theme', t);
-    if (icon) {
-      icon.className = t === 'dark' ? 'ri-sun-line' : 'ri-moon-line';
-    }
+    toggles.forEach((btn) => {
+      const icon = btn?.querySelector('i');
+      if (icon) icon.className = t === 'dark' ? 'ri-sun-line' : 'ri-moon-line';
+    });
   }
 
   setTheme(theme);
 
-  toggle?.addEventListener('click', () => {
-    const current = document.documentElement.getAttribute('data-theme');
-    setTheme(current === 'dark' ? 'light' : 'dark');
+  toggles.forEach((btn) => {
+    btn?.addEventListener('click', () => {
+      const current = document.documentElement.getAttribute('data-theme');
+      setTheme(current === 'dark' ? 'light' : 'dark');
+    });
   });
 })();
 
 // ===== Navbar Scroll Effect =====
 (function () {
   const navbar = document.getElementById('mp-navbar');
+  const hero = document.getElementById('hero');
   if (!navbar) return;
 
   let ticking = false;
@@ -37,7 +43,8 @@
   function onScroll() {
     if (!ticking) {
       requestAnimationFrame(() => {
-        if (window.scrollY > 40) {
+        const heroBottom = hero ? hero.getBoundingClientRect().bottom : 0;
+        if (heroBottom <= 64) {
           navbar.classList.add('mp-scrolled');
         } else {
           navbar.classList.remove('mp-scrolled');
