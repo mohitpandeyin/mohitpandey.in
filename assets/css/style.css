@@ -512,51 +512,6 @@ ul { list-style: none; }
   max-width: 540px;
 }
 
-/* Stats row */
-.mp-hero-stats {
-  display: inline-flex;
-  align-items: center;
-  gap: 20px;
-  padding: 14px 24px;
-  border-radius: var(--radius);
-  background: var(--bg-elevated);
-  border: 1px solid var(--border);
-  margin-bottom: 20px;
-  box-shadow: var(--shadow-xs);
-}
-[data-theme="dark"] .mp-hero-stats {
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-}
-
-.mp-stat-item {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 2px;
-}
-
-.mp-stat-number {
-  font-size: 20px;
-  font-weight: 800;
-  color: var(--text);
-  letter-spacing: -0.5px;
-}
-
-.mp-stat-label {
-  font-size: 11px;
-  font-weight: 500;
-  color: var(--text-muted);
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-}
-
-.mp-stat-divider {
-  width: 1px;
-  height: 32px;
-  background: var(--border);
-}
-
 /* Tags */
 .mp-hero-tags {
   display: flex;
@@ -1239,7 +1194,6 @@ ul { list-style: none; }
   .mp-hero-handle { justify-content: center; }
   .mp-hero-role-row { justify-content: center; }
   .mp-hero-bio { max-width: 100%; }
-  .mp-hero-stats { width: 100%; justify-content: center; }
   .mp-hero-tags { justify-content: center; }
   .mp-hero-socials { justify-content: center; }
 
@@ -1264,7 +1218,6 @@ ul { list-style: none; }
 
   .mp-avatar-ring { width: 96px; height: 96px; }
   .mp-hero-name { font-size: 22px; }
-  .mp-hero-stats { gap: 14px; padding: 12px 16px; }
   .mp-stat-number { font-size: 18px; }
   .mp-banner-sidebar { display: none; }
 }
