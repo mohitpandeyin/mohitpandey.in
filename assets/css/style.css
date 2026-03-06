@@ -37,8 +37,6 @@
   /* Typography */
   --font: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
 
-  /* Banner */
-  --banner-h: 240px;
 }
 
 /* ===== Dark Mode — Notion Dark ===== */
@@ -236,7 +234,6 @@ ul { list-style: none; }
 
 .mp-hero-banner {
   position: relative;
-  height: var(--banner-h);
   overflow: hidden;
   border-radius: 0;
   background-color: var(--bg-subtle);
@@ -257,20 +254,15 @@ ul { list-style: none; }
   background-image:
     linear-gradient(var(--border) 1px, transparent 1px),
     linear-gradient(90deg, var(--border) 1px, transparent 1px);
-  background-size: 60px 60px;
-  opacity: 0.4;
+  background-size: 60px 62px;
+  opacity: 0.35;
 }
 
 /* Banner text overlay */
 .mp-banner-text {
-  position: absolute;
-  inset: 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  position: relative;
   z-index: 2;
-  padding: 0 24px;
+  padding: 52px 24px;
   text-align: center;
 }
 
@@ -290,28 +282,6 @@ ul { list-style: none; }
   letter-spacing: 0.5px;
 }
 
-.mp-banner-sidebar {
-  position: absolute;
-  right: 28px;
-  bottom: 24px;
-  z-index: 2;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 6px;
-  color: var(--text-muted);
-}
-
-.mp-banner-sidebar-label {
-  font-size: 11px;
-  font-weight: 500;
-  text-align: center;
-  line-height: 1.35;
-}
-
-.mp-banner-sidebar i {
-  font-size: 16px;
-}
 
 /* Hero Content */
 .mp-hero-content {
@@ -1018,9 +988,6 @@ ul { list-style: none; }
 
 /* ===== Responsive ===== */
 @media (max-width: 768px) {
-  :root {
-    --banner-h: 160px;
-  }
 
   .mp-nav-links { display: none; }
   .mp-nav-cta span { display: none; }
@@ -1028,12 +995,12 @@ ul { list-style: none; }
   .mp-hero-avatar-wrap { margin-top: -50px; }
 
   .mp-hero-name { font-size: 26px; }
-  .mp-hero-name-row { justify-content: center; }
-  .mp-hero-handle { justify-content: center; }
-  .mp-hero-role-row { justify-content: center; }
+  .mp-hero-name-row { justify-content: flex-start; }
+  .mp-hero-handle { justify-content: flex-start; }
+  .mp-hero-role-row { justify-content: flex-start; }
   .mp-hero-bio { max-width: 100%; }
-  .mp-hero-tags { justify-content: center; }
-  .mp-hero-socials { justify-content: center; }
+  .mp-hero-tags { justify-content: flex-start; }
+  .mp-hero-socials { justify-content: flex-start; }
 
   .mp-container { padding: 0 16px; }
   .mp-card-header { padding: 16px 20px; }
@@ -1052,8 +1019,6 @@ ul { list-style: none; }
 }
 
 @media (max-width: 480px) {
-  :root { --banner-h: 130px; }
-
   .mp-avatar-ring { width: 96px; height: 96px; }
   .mp-hero-name { font-size: 22px; }
   .mp-banner-sidebar { display: none; }
