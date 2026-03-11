@@ -429,16 +429,19 @@ ul { list-style: none; }
   display: inline-flex;
   align-items: center;
   gap: 5px;
-  padding: 4px 10px;
+  padding: 5px 12px;
   border-radius: var(--radius-sm);
   font-size: 12px;
   font-weight: 500;
   background: var(--bg-subtle);
   color: var(--text-secondary);
-  transition: background var(--duration) var(--ease);
+  border: 1px solid var(--border-subtle);
+  transition: all var(--duration) var(--ease);
 }
 .mp-hero-tag:hover {
   background: var(--bg-hover);
+  border-color: var(--border);
+  transform: translateY(-1px);
 }
 .mp-hero-tag i {
   font-size: 13px;
@@ -475,6 +478,10 @@ ul { list-style: none; }
   border: 1px solid var(--border);
   margin-bottom: 24px;
   overflow: hidden;
+  transition: border-color var(--duration-md) var(--ease);
+}
+.mp-card:hover {
+  border-color: var(--text-muted);
 }
 
 .mp-card-header {
@@ -562,15 +569,15 @@ ul { list-style: none; }
 }
 
 /* ===== Tech Stack ===== */
-.mp-tech-categories { display: flex; flex-direction: column; gap: 24px; }
+.mp-tech-categories { display: flex; flex-direction: column; gap: 28px; }
 
 .mp-tech-category-label {
   font-size: 11px;
   font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 1px;
+  letter-spacing: 1.2px;
   color: var(--text-muted);
-  margin-bottom: 10px;
+  margin-bottom: 12px;
 }
 
 .mp-tech-grid {
@@ -582,26 +589,31 @@ ul { list-style: none; }
 .mp-tech-badge {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
-  padding: 6px 14px;
+  gap: 7px;
+  padding: 7px 14px 7px 10px;
   border-radius: var(--radius-sm);
   font-size: 13px;
   font-weight: 500;
   border: 1px solid var(--border);
   background: var(--bg-subtle);
   color: var(--text);
-  transition: background var(--duration) var(--ease);
+  transition: all var(--duration) var(--ease);
   cursor: default;
 }
 .mp-tech-badge:hover {
   background: var(--bg-hover);
+  border-color: var(--text-muted);
+  transform: translateY(-1px);
 }
 
-.mp-tech-dot {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
+.mp-tech-icon {
+  font-size: 15px;
+  color: var(--text-muted);
   flex-shrink: 0;
+  transition: color var(--duration) var(--ease);
+}
+.mp-tech-badge:hover .mp-tech-icon {
+  color: var(--text);
 }
 
 .mp-tech-exp {
@@ -779,10 +791,11 @@ ul { list-style: none; }
 .mp-position-tech-tag {
   font-size: 11px;
   font-weight: 500;
-  padding: 3px 8px;
+  padding: 3px 9px;
   border-radius: var(--radius-sm);
   background: var(--bg-hover);
   color: var(--text-secondary);
+  border: 1px solid var(--border-subtle);
 }
 
 /* ===== Projects ===== */
@@ -797,12 +810,14 @@ ul { list-style: none; }
   border-radius: var(--radius-sm);
   padding: 22px;
   background: var(--bg-subtle);
-  transition: background var(--duration) var(--ease);
+  transition: all var(--duration) var(--ease);
   display: flex;
   flex-direction: column;
 }
 .mp-project-card:hover {
   background: var(--bg-hover);
+  border-color: var(--text-muted);
+  transform: translateY(-2px);
 }
 
 .mp-project-card-top {
